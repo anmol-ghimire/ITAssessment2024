@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Page</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            opacity: 0.7; /* Adjust opacity as needed */
+        }
+        
+        .contact-container {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(255, 255, 255, 0.8); /* Background color with opacity */
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            z-index: 999;
+            border: 2px solid #ccc; /* Outline color */
+        }
+
+        .contact-container h1 {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="logo.png" alt="Logo">
+        <nav>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+      </header>
+<div class="contact-container">
+     <div class="feature">
+    <h1>Contact Us</h1>
+    <form id="contact-form">
+        <input type="text" placeholder="Name" required><br><br>
+        <input type="email" placeholder="Email" required><br><br>
+        <textarea placeholder="Message" required></textarea><br><br>
+        <button type="submit">Submit</button>
+    </form>
+     </div>
+</div>
+
+<script>
+    // JavaScript for hovering contact box
+    document.addEventListener('DOMContentLoaded', function () {
+        const contactContainer = document.querySelector('.contact-container');
+        let isHovering = false;
+
+        contactContainer.addEventListener('mouseenter', function () {
+            isHovering = true;
+        });
+
+        contactContainer.addEventListener('mouseleave', function () {
+            isHovering = false;
+        });
+
+        function updatePosition() {
+            const rect = contactContainer.getBoundingClientRect();
+            const viewportHeight = window.innerHeight;
+
+            if (!isHovering && rect.top < 0) {
+                contactContainer.style.top = '50%';
+            } else if (!isHovering && rect.bottom > viewportHeight) {
+                contactContainer.style.top = 'auto';
+                contactContainer.style.bottom = '50%';
+            }
+        }
+
+        window.addEventListener('scroll', updatePosition);
+        window.addEventListener('resize', updatePosition);
+    });
+</script>
+
+</body>
+</html>
