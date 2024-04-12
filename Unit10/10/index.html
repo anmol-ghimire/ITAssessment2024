@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Exercise-10</title>
+</head>
+<body>
+    <script>
+        var length_a = prompt("Enter a number for the length of your rectangle: ");
+        var width_b = prompt("Enter a number for the width of your rectangle: ");
+
+        // Check if length and width are equal
+        while (parseFloat(length_a) === parseFloat(width_b)) {
+            alert("Length and width cannot be equal. Please enter different values.");
+            length_a = prompt("Enter a number for the length of your rectangle: ");
+            width_b = prompt("Enter a number for the width of your rectangle: ");
+        }
+
+        function area(length_a, width_b) {
+            return length_a * width_b;
+        }
+
+        document.write("The area of your rectangle is: " + area(length_a, width_b));
+    </script> 
+        
+</body>
+</html>
